@@ -1,82 +1,3 @@
-<!DOCTYPE html>
-<html lang="de">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="SOS Ferien-Quests: 47 fertige Abenteuer-Aufträge für Kinder von 6–14 Jahren. Schnelle Hilfe für den Ferien-Alltag ganz ohne Bildschirm.">
-<title>SOS Ferien-Quests – Schnelle Hilfe für den Ferien-Alltag</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Bitter:wght@500;700;900&family=Inter:wght@400;500;600;700;800&family=Kalam:wght@400;700&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --paper:#FAF3E2;
-    --paper-dark:#F0E6CD;
-    --ink:#212F3D;
-    --ink-soft:#5B6570;
-    --signal:#D6472B;
-    --signal-dark:#B23A22;
-    --gold:#C9982E;
-    --green:#3F7D5C;
-    --green-bg:#E9F2EC;
-    --blue:#2B6E96;
-    --blue-bg:#E6EFF4;
-    --rust:#B5563C;
-    --rust-bg:#F7EAE4;
-    --line:#D8CCA9;
-  }
-
-  *{box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
-  body{
-    margin:0;
-    background:var(--paper);
-    color:var(--ink);
-    font-family:'Inter',sans-serif;
-    font-size:17px;
-    line-height:1.55;
-    background-image:
-      radial-gradient(circle, rgba(33,47,61,0.05) 1px, transparent 1px);
-    background-size: 14px 14px;
-  }
-  img{max-width:100%;display:block;}
-  .wrap{max-width:1080px;margin:0 auto;padding:0 24px;}
-  h1,h2,h3{font-family:'Bitter',serif;margin:0;color:var(--ink);}
-  .eyebrow{
-    display:inline-flex;align-items:center;gap:8px;
-    font-family:'Kalam',cursive;
-    font-weight:700;
-    font-size:15px;
-    color:var(--signal);
-    background:#fff;
-    border:2px solid var(--signal);
-    padding:6px 16px 8px;
-    border-radius:100px;
-    transform:rotate(-2deg);
-    letter-spacing:.02em;
-  }
-  .btn{
-    display:inline-flex;align-items:center;gap:10px;
-    background:var(--signal);
-    color:#fff;
-    font-family:'Bitter',serif;
-    font-weight:700;
-    font-size:19px;
-    padding:18px 34px;
-    border-radius:10px;
-    text-decoration:none;
-    box-shadow:0 6px 0 var(--signal-dark);
-    transition:transform .12s ease, box-shadow .12s ease;
-    border:none;
-    cursor:pointer;
-  }
-  .btn:hover{transform:translateY(2px);box-shadow:0 4px 0 var(--signal-dark);}
-  .btn:active{transform:translateY(6px);box-shadow:0 0 0 var(--signal-dark);}
-  .btn-sub{
-    display:block;margin-top:12px;font-size:14px;color:var(--ink-soft);
-  }
-
-  /* ---------------- HERO ---------------- */
-  .hero{
     padding:72px 0 40px;
     position:relative;
     overflow:hidden;
@@ -443,7 +364,7 @@
     </div>
     <div class="age-grid">
       <div class="age-card green">
-        <img class="age-icon" src="data:image/png;base64,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" alt="">
+        <img class="age-icon" src="data:image/png;base64,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" alt="">
         <h3>6–8 Jahre</h3>
         <span class="tag">Die Nachwuchs-Agenten</span>
         <p>Kurze Missionen mit viel gemeinsamem Tun – von der Kissenhöhle bis zum Monster-Bild.</p>
@@ -457,7 +378,7 @@
         <div class="age-count">16 Quests</div>
       </div>
       <div class="age-card rust">
-        <img class="age-icon" src="data:image/png;base64,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" alt="">
+        <img class="age-icon" src="data:image/png;base64,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" alt="">
         <h3>12–14 Jahre</h3>
         <span class="tag">Die Meister-Agenten</span>
         <p>Anspruchsvoll und selbstständig – von der eigenen Brettspiel-Erfindung bis zum Escape Room.</p>
@@ -507,7 +428,7 @@
   </div>
   <details open>
     <summary>Muss ich das ausdrucken?</summary>
-    <p>Ja – die Quest-Karten sind zum Ausdrucken gedacht, 4 Stück pro A4-Seite. Ein normaler Heim-Drucker oder ein Copyshop-Ausdruck reicht völlig.</p>
+    <p>Ja – die Quest-Karten sind zum Ausdrucken gedacht, 4 Stück pro A4-Seite. Ein normaler Heim-Drukker oder ein Copyshop-Ausdruck reicht völlig.</p>
   </details>
   <details>
     <summary>Für welches Alter ist das Buch geeignet?</summary>
@@ -519,7 +440,7 @@
   </details>
   <details>
     <summary>Brauche ich besonderes Material für die Quests?</summary>
-    <p>Nein. Fast alle Aufträge nutzen das, was ohnehin zuhause ist – Bauklötze, Kissen, Papier, Küchenzutaten. Bei einzelnen Quests steht das benötigte Material direkt mit dabei.</p>
+    <p>Nein. Fast alle Aufträge nutzen das, was ohnehin zuhause ist – Bauklötze, Kissen, Papier, Küchenzutaten. Eizelnen Quests steht das benötigte Material direkt mit dabei.</p>
   </details>
   <details>
     <summary>Was, wenn es nicht das Richtige für uns ist?</summary>
