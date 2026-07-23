@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="SOS Ferien-Quests: 47 fertige Abenteuer-Aufträge für Kinder von 6–14 Jahren. Schnelle Hilfe für den Ferien-Alltag ganz ohne Bildschirm.">
+<title>SOS Ferien-Quests – Schnelle Hilfe für den Ferien-Alltag</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bitter:wght@500;700;900&family=Inter:wght@400;500;600;700;800&family=Kalam:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#E8F0EA;
+    --paper-dark:#D9E6DC;
+    --ink:#212F3D;
+    --ink-soft:#5B6570;
+    --signal:#D6472B;
+    --signal-dark:#B23A22;
+    --gold:#C9982E;
+    --green:#3F7D5C;
+    --green-bg:#E9F2EC;
+    --blue:#2B6E96;
+    --blue-bg:#E6EFF4;
+    --rust:#B5563C;
+    --rust-bg:#F7EAE4;
+    --line:#D8CCA9;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    font-size:17px;
+    line-height:1.55;
+    background-image:
+      radial-gradient(circle, rgba(33,47,61,0.05) 1px, transparent 1px);
+    background-size: 14px 14px;
+  }
+  img{max-width:100%;display:block;}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px;}
+  h1,h2,h3{font-family:'Bitter',serif;margin:0;color:var(--ink);}
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:8px;
+    font-family:'Kalam',cursive;
+    font-weight:700;
+    font-size:15px;
+    color:var(--signal);
+    background:#fff;
+    border:2px solid var(--signal);
+    padding:6px 16px 8px;
+    border-radius:100px;
+    transform:rotate(-2deg);
+    letter-spacing:.02em;
+  }
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;
+    background:var(--signal);
+    color:#fff;
+    font-family:'Bitter',serif;
+    font-weight:700;
+    font-size:19px;
+    padding:18px 34px;
+    border-radius:10px;
+    text-decoration:none;
+    box-shadow:0 6px 0 var(--signal-dark);
+    transition:transform .12s ease, box-shadow .12s ease;
+    border:none;
+    cursor:pointer;
+  }
+  .btn:hover{transform:translateY(2px);box-shadow:0 4px 0 var(--signal-dark);}
+  .btn:active{transform:translateY(6px);box-shadow:0 0 0 var(--signal-dark);}
+  .btn-sub{
+    display:block;margin-top:12px;font-size:14px;color:var(--ink-soft);
+  }
+
+  /* ---------------- HERO ---------------- */
+  .hero{
+    padding:72px 0 40px;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero-grid{
+    display:flex;
+    gap:56px;
+    align-items:center;
+  }
+  .hero-grid > div:first-child{flex:1.05;min-width:0;}
+  .hero-grid > .mock-wrap{flex:0.95;min-width:0;}
+  .hero h1{
+    font-size:56px;
+    line-height:1.03;
+    margin-top:18px;
+    letter-spacing:-0.01em;
+  }
+  .hero h1 span{color:var(--signal);}
+  .hero .sub{
+    font-family:'Bitter',serif;
+    font-weight:500;
+    font-size:23px;
+    color:var(--ink-soft);
+    margin-top:14px;
+  }
+  .hero p.desc{
+    margin-top:20px;
+    font-size:17px;
+    max-width:46ch;
+    color:var(--ink);
+  }
+  .hero-cta{margin-top:30px;}
+  .trust-row{
+    margin-top:22px;
+    display:flex;gap:22px;flex-wrap:wrap;
+    font-size:14px;color:var(--ink-soft);font-weight:600;
+  }
+  .trust-row span{display:inline-flex;align-items:center;gap:6px;}
+  .trust-row span::before{content:"✓";color:var(--green);font-weight:800;}
+
+  /* quest card mockup */
+  .mock-wrap{position:relative;display:flex;justify-content:center;}
+  .mock-card{
+    background:#fff;
+    width:340px;
+    max-width:100%;
+    border:2px solid var(--green);
+    border-radius:4px;
+    padding:18px 20px 16px;
+    transform:rotate(3.5deg);
+    box-shadow:0 22px 40px -14px rgba(33,47,61,0.35);
+    position:relative;
+  }
+  .mock-card::before{
+    content:"";
+    position:absolute;top:-14px;left:50%;
+    transform:translateX(-50%) rotate(-8deg);
+    width:60px;height:22px;
+    background:rgba(201,152,46,0.55);
+  }
+  .mock-title{
+    display:flex;align-items:flex-start;gap:8px;flex-wrap:wrap;
+    font-family:'Bitter',serif;font-weight:700;color:var(--green);font-size:16px;line-height:1.25;
+    border-bottom:2px solid var(--green-bg);padding-bottom:10px;margin-bottom:10px;
+    padding-right:46px;
+  }
+  .mock-title img{width:22px;height:22px;flex-shrink:0;margin-top:1px;}
+  .mock-title span{flex:1;min-width:0;}
+  .xp-pill{
+    flex:0 0 auto !important;
+    background:var(--gold);color:#fff;font-family:'Inter',sans-serif;
+    font-size:11px;font-weight:700;padding:3px 8px;border-radius:20px;
+    align-self:flex-start;
+  }
+  .mock-card p{margin:0 0 8px;font-size:14px;}
+  .mock-card .step{margin:0 0 5px;font-size:13.5px;color:var(--ink);}
+  .mock-card .meta{
+    margin-top:10px;padding-top:8px;border-top:1px dashed var(--line);
+    font-size:12px;color:var(--ink-soft);font-style:italic;
+  }
+  .mock-badge{
+    position:absolute;top:-18px;right:-18px;
+    background:var(--signal);color:#fff;
+    font-family:'Kalam',cursive;font-weight:700;
+    font-size:13px;line-height:1.2;
+    width:74px;height:74px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;text-align:center;
+    transform:rotate(12deg);
+    border:3px dashed #fff;
+    box-shadow:0 6px 14px rgba(0,0,0,0.25);
+  }
+  .scissors-note{
+    position:absolute;bottom:-34px;left:14px;
+    font-family:'Kalam',cursive;font-size:13px;color:var(--ink-soft);
+    display:flex;align-items:center;gap:6px;
+  }
+
+  /* ---------------- DISPATCH LOG (signature) ---------------- */
+  .dispatch{padding:50px 0 70px;}
+  .dispatch-head{text-align:center;max-width:640px;margin:0 auto 30px;}
+  .dispatch-head .eyebrow{margin-bottom:14px;}
+  .dispatch-head h2{font-size:34px;}
+  .log{
+    background:#1B242E;
+    color:#E7E2D3;
+    border-radius:14px;
+    padding:30px 34px;
+    font-family:'Courier New',monospace;
+    font-size:15px;
+    max-width:640px;
+    margin:0 auto;
+    position:relative;
+    box-shadow:0 24px 50px -20px rgba(0,0,0,0.5);
+  }
+  .log-line{
+    display:flex;gap:14px;padding:9px 0;border-bottom:1px solid rgba(231,226,211,0.12);
+  }
+  .log-line:last-child{border-bottom:none;}
+  .log-time{color:var(--gold);white-space:nowrap;font-weight:700;}
+  .log-day{
+    text-align:center;margin-top:18px;padding-top:14px;
+    border-top:1px dashed rgba(231,226,211,0.25);
+    font-family:'Bitter',serif;font-weight:700;color:#fff;letter-spacing:.03em;
+  }
+  .stamp{
+    position:absolute;right:-18px;bottom:-22px;
+    background:var(--signal);color:#fff;
+    font-family:'Kalam',cursive;font-weight:700;font-size:16px;
+    padding:10px 18px;border:3px solid #fff;border-radius:8px;
+    transform:rotate(-7deg);
+    box-shadow:0 10px 20px rgba(0,0,0,0.3);
+  }
+
+  /* ---------------- SYSTEM / 3 STEPS ---------------- */
+  .system{padding:50px 0;}
+  .section-head{text-align:center;max-width:640px;margin:0 auto 40px;}
+  .section-head h2{font-size:32px;}
+  .section-head p{color:var(--ink-soft);margin-top:12px;font-size:16px;}
+  .steps{
+    display:flex;gap:22px;
+  }
+  .steps .step-card{flex:1;min-width:0;}
+  .step-card{
+    background:#fff;border:2px solid var(--ink);border-radius:12px;
+    padding:26px 22px;position:relative;
+  }
+  .step-num{
+    font-family:'Bitter',serif;font-weight:900;font-size:15px;
+    color:#fff;background:var(--ink);
+    width:34px;height:34px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    position:absolute;top:-17px;left:22px;
+  }
+  .step-card h3{font-size:19px;margin-top:8px;}
+  .step-card p{font-size:14.5px;color:var(--ink-soft);margin-top:8px;}
+  .xp-callout{
+    margin-top:26px;
+    background:var(--green-bg);
+    border:2px dashed var(--green);
+    border-radius:12px;
+    padding:20px 24px;
+    display:flex;align-items:center;gap:18px;
+  }
+  .xp-callout-badge{
+    flex-shrink:0;
+    background:var(--gold);color:#fff;
+    font-family:'Bitter',serif;font-weight:800;font-size:15px;
+    width:64px;height:64px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    transform:rotate(-6deg);
+  }
+  .xp-callout p{margin:0;font-size:15px;color:var(--ink);}
+
+  /* ---------------- ALTERSSTUFEN ---------------- */
+  .ages{padding:40px 0 60px;}
+  .age-grid{display:flex;gap:20px;}
+  .age-grid .age-card{flex:1;min-width:0; height:100%;}
+  .age-card{
+    border-radius:14px;padding:26px 22px 22px;position:relative;overflow:hidden;
+  }
+  .age-card.green{background:var(--green-bg);border:2px solid var(--green);}
+  .age-card.blue{background:var(--blue-bg);border:2px solid var(--blue);}
+  .age-card.rust{background:var(--rust-bg);border:2px solid var(--rust);}
+  .age-icon{width:40px;height:40px;margin-bottom:12px;}
+  .age-card h3{font-size:22px;}
+  .age-card.green h3{color:var(--green);}
+  .age-card.blue h3{color:var(--blue);}
+  .age-card.rust h3{color:var(--rust);}
+  .age-card .tag{
+    font-family:'Kalam',cursive;font-weight:700;font-size:13px;
+    display:inline-block;margin-top:6px;margin-bottom:10px;
+  }
+  .age-card.green .tag{color:var(--green);}
+  .age-card.blue .tag{color:var(--blue);}
+  .age-card.rust .tag{color:var(--rust);}
+  .age-card p{font-size:14.5px;color:var(--ink);}
+  .age-count{
+    margin-top:14px;font-size:13px;font-weight:700;color:var(--ink-soft);
+  }
+
+  /* ---------------- FEATURES ---------------- */
+  .features{padding:20px 0 60px;}
+  .feat-list{
+    list-style:none;margin:0;padding:0;
+    display:flex;flex-wrap:wrap;gap:16px 32px;
+    max-width:820px;margin:0 auto;
+  }
+  .feat-list li{
+    flex:0 0 calc(50% - 16px);
+    box-sizing:border-box;
+    display:flex;gap:12px;font-size:15.5px;align-items:flex-start;
+  }
+  .feat-list li::before{
+    content:"✓";
+    flex-shrink:0;
+    width:24px;height:24px;border-radius:50%;
+    background:var(--green);color:#fff;font-size:13px;font-weight:800;
+    display:flex;align-items:center;justify-content:center;
+    margin-top:2px;
+  }
+  .feat-list li.outdoor::before{content:"☀";background:var(--signal);font-size:14px;}
+
+  /* ---------------- OFFER / PRICE ---------------- */
+  .offer{padding:20px 0 70px;}
+  .offer-box{
+    background:var(--ink);color:#fff;border-radius:20px;
+    padding:50px 40px;text-align:center;position:relative;overflow:hidden;
+  }
+  .offer-box::before{
+    content:"";position:absolute;inset:0;
+    background:radial-gradient(circle at 20% 20%, rgba(214,71,43,0.35), transparent 45%);
+  }
+  .offer-box h2{color:#fff;font-size:32px;position:relative;}
+  .offer-box p.lead{color:#C9CDD3;max-width:52ch;margin:14px auto 0;position:relative;font-size:16px;}
+  .price-row{
+    position:relative;margin:28px 0 8px;
+    display:flex;align-items:baseline;justify-content:center;gap:12px;
+  }
+  .price-old{font-size:22px;color:#8b93a0;text-decoration:line-through;font-family:'Bitter',serif;}
+  .price-new{font-size:46px;font-family:'Bitter',serif;font-weight:900;color:var(--gold);}
+  .offer-box .btn{margin-top:14px;position:relative;}
+  .offer-box .btn-sub{color:#C9CDD3;}
+
+  /* ---------------- FAQ ---------------- */
+  .faq{padding:20px 0 70px;max-width:760px;margin:0 auto;}
+  details{
+    border-bottom:1px solid var(--line);padding:18px 0;
+  }
+  summary{
+    cursor:pointer;font-family:'Bitter',serif;font-weight:700;font-size:17px;
+    list-style:none;display:flex;justify-content:space-between;align-items:center;
+  }
+  summary::-webkit-details-marker{display:none;}
+  summary::after{content:"+";font-size:22px;color:var(--signal);font-weight:700;}
+  details[open] summary::after{content:"–";}
+  details p{margin:12px 0 0;color:var(--ink-soft);font-size:15px;max-width:64ch;}
+
+  footer{
+    text-align:center;padding:40px 24px 60px;color:var(--ink-soft);font-size:13px;
+  }
+  footer a{color:var(--ink-soft);}
+
+  /* ---------------- IMPRESSUM (Klapp-Bereich) ---------------- */
+  .legal-toggle{
+    background:none;border:none;
+    font-family:'Inter',sans-serif;
+    font-size:13px;font-weight:600;
+    color:var(--ink-soft);
+    text-decoration:underline;
+    cursor:pointer;
+    padding:4px 0;
+  }
+  .legal-toggle:hover{color:var(--ink);}
+  .legal-box{
+    display:none;
+    text-align:left;
+    max-width:640px;
+    margin:18px auto 0;
+    padding:24px 26px;
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:12px;
+    font-size:14px;
+    line-height:1.6;
+    color:var(--ink);
+  }
+  .legal-box.open{display:block;}
+  .legal-box h4{
+    font-family:'Bitter',serif;font-size:16px;margin:0 0 10px;color:var(--ink);
+  }
+  .legal-box p{margin:0 0 12px;}
+  .legal-box table{border-collapse:collapse;margin-bottom:14px;width:100%;}
+  .legal-box table td{padding:4px 10px 4px 0;vertical-align:top;font-size:14px;}
+  .legal-box table td:first-child{color:var(--ink-soft);white-space:nowrap;font-weight:600;}
+  .legal-box hr{border:none;border-top:1px solid var(--line);margin:16px 0;}
+
+  @media (max-width:860px){
+    .hero-grid{flex-direction:column;}
+    .hero h1{font-size:40px;}
+    .mock-wrap{order:-1;margin-bottom:10px;}
+    .steps{flex-direction:column;}
+    .age-grid{flex-direction:column;}
+    .feat-list li{flex:0 0 100%;}
+    .offer-box{padding:36px 22px;}
+  }
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow">🚨 Einsatzbereit ab sofort</span>
+      <h1>SOS Ferien&#8209;Quests</h1>
+      <p class="sub">Schnelle Hilfe für den Ferien-Alltag</p>
+      <p class="desc">47 fertige Abenteuer-Aufträge für Kinder von 6–14&nbsp;Jahren. Ausdrucken, ausfüllen, Ruhe haben – ganz ohne Bildschirm und ohne dass du dir noch eine einzige Beschäftigung ausdenken musst.</p>
+      <div class="hero-cta">
+        <a href="#kaufen" class="btn">Jetzt Ferien retten →</a>
+        <span class="btn-sub">Sofort-Download als PDF · einmalig zahlen · sofort startklar</span>
+      </div>
+      <div class="trust-row">
+        <span>47 Quests</span>
+        <span>3 Altersstufen</span>
+        <span>XP-System</span>
+        <span>Zum Ausdrucken</span>
+        <span>Draußen-Quests markiert</span>
+      </div>
+    </div>
+    <div class="mock-wrap">
+      <div class="mock-card">
+        <div class="mock-badge">SOFORT<br>EINSATZ&shy;BEREIT</div>
+        <div class="mock-title"><img src="data:image/png;base64,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" alt="">
+        <span>Die Kuscheltier-Film-Quest</span> <span class="xp-pill">+30 XP</span></div>
+        <p><strong>Auftrag:</strong> Dreh mit deinen Kuscheltieren als Schauspieler einen kleinen Film.</p>
+        <p class="step">☐ Etappe 1: Kurze Geschichte ausdenken</p>
+        <p class="step">☐ Etappe 2: Szenen mit dem Handy filmen</p>
+        <p class="step">☐ Etappe 3: Titel überlegen</p>
+        <p><strong>Finale:</strong> Kino-Abend mit der ganzen Familie.</p>
+        <div class="meta">Dauer: 1–2 Std. · Material: Kuscheltiere, Handy · Ort: Drinnen · XP: 30</div>
+        <div class="scissors-note">✂ 4 Karten pro A4-Seite</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="dispatch">
+  <div class="wrap">
+    <div class="dispatch-head">
+      <span class="eyebrow">Notruf-Protokoll</span>
+      <h2>Kommt dir das bekannt vor?</h2>
+    </div>
+    <div class="log">
+      <div class="log-line"><span class="log-time">09:14</span><span>„Mir ist langweilig." (zum ersten Mal heute)</span></div>
+      <div class="log-line"><span class="log-time">11:02</span><span>Bildschirmzeit-Diskussion Nr. 2</span></div>
+      <div class="log-line"><span class="log-time">14:37</span><span>„Aber ICH will das nicht spielen!"</span></div>
+      <div class="log-line"><span class="log-time">16:50</span><span>Geschwisterstreit, Ursache: Langeweile</span></div>
+      <div class="log-day">FERIEN-TAG 3 VON ~42</div>
+      <div class="stamp">EINSATZ<br>ANGENOMMEN</div>
+    </div>
+  </div>
+</section>
+
+<section class="system">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Der Einsatzplan: 3 Schritte, ein System</h2>
+      <p>Jede Quest in „SOS Ferien-Quests" folgt derselben Formel – deshalb funktioniert sie beim ersten Versuch.</p>
+    </div>
+    <div class="steps">
+      <div class="step-card">
+        <span class="step-num">1</span>
+        <h3>Der Auftrag</h3>
+        <p>Eine klare, greifbare Aufgabe – kein „beschäftige dich mal", sondern „baue eine Brücke, die ein Wasserglas trägt".</p>
+      </div>
+      <div class="step-card">
+        <span class="step-num">2</span>
+        <h3>Die Etappen</h3>
+        <p>Drei Schritte zum Abhaken. Der Fortschritt wird sichtbar – ganz ohne dein Zutun.</p>
+      </div>
+      <div class="step-card">
+        <span class="step-num">3</span>
+        <h3>Das Finale mit Publikum</h3>
+        <p>Vorführung, Rätsel-Raten oder Jury beim Abendessen. Der Auftritt ist der Grund, warum durchgezogen wird.</p>
+      </div>
+    </div>
+    <div class="xp-callout">
+      <span class="xp-callout-badge">+ XP</span>
+      <p><strong>Und obendrauf: ein Level-System.</strong> Jede Quest bringt 10–70 XP – je nach Aufwand direkt auf der Karte vermerkt. Im Level-Tracker im Buch werden die Punkte gesammelt und in Ränge verwandelt: vom Späher bis zum SOS-Champion.</p>
+    </div>
+  </div>
+</section>
+
+<section class="ages">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Für jedes Alter der passende Auftrag</h2>
+      <p>Richtwerte, keine Regeln – jedes Kapitel funktioniert eigenständig.</p>
+    </div>
+    <div class="age-grid">
+      <div class="age-card green">
+        <img class="age-icon" src="data:image/png;base64,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" alt="">
+        <h3>6–8 Jahre</h3>
+        <span class="tag">Die Nachwuchs-Agenten</span>
+        <p>Kurze Missionen mit viel gemeinsamem Tun – von der Kissenhöhle bis zum Monster-Bild.</p>
+        <div class="age-count">15 Quests</div>
+      </div>
+      <div class="age-card blue">
+        <img class="age-icon" src="data:image/png;base64,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" alt="">
+        <h3>9–11 Jahre</h3>
+        <span class="tag">Die Kundschafter</span>
+        <p>Mehr Eigenregie, größere Projekte – inklusive Lego- und Playmobil-Stop-Motion-Filmen.</p>
+        <div class="age-count">16 Quests</div>
+      </div>
+      <div class="age-card rust">
+        <img class="age-icon" src="data:image/png;base64,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" alt="">
+        <h3>12–14 Jahre</h3>
+        <span class="tag">Die Meister-Agenten</span>
+        <p>Anspruchsvoll und selbstständig – von der eigenen Brettspiel-Erfindung bis zum Escape Room.</p>
+        <div class="age-count">16 Quests</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="features">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Alles, was du in die Hand bekommst</h2>
+    </div>
+    <ul class="feat-list">
+      <li>47 fertige Quests – kein Grübeln mehr, was heute ansteht</li>
+      <li>XP-System: 10–70 Punkte pro Quest, plus Level-Tracker im Buch</li>
+      <li>Nach Alter sortiert: 6–8 / 9–11 / 12–14 Jahre</li>
+      <li>Jede Quest mit Auftrag, 3 Etappen zum Abhaken und Finale</li>
+      <li class="outdoor">Draußen-Quests klar markiert – perfekt fürs Wetter-Roulette</li>
+      <li>Leere Quest-Zettel zum Ausdrucken für eigene Ideen</li>
+      <li>4 Karten pro A4-Seite – sparsam beim Drucken</li>
+      <li>Ideen-Spicker für ruhige Momente zwischendurch</li>
+      <li>Sofort als PDF – startklar in 2 Minuten</li>
+    </ul>
+  </div>
+</section>
+
+<section class="offer" id="kaufen">
+  <div class="wrap">
+    <div class="offer-box">
+      <span class="eyebrow" style="background:#1B242E;">Einmalig zahlen, den ganzen Sommer nutzen</span>
+      <h2>SOS Ferien-Quests</h2>
+      <p class="lead">Egal ob ihr schon mitten in den Ferien seid oder gerade erst startet – in 5 Minuten habt ihr eine startklare Abenteuer-Bibliothek für den Rest des Sommers.</p>
+      <div class="price-row">
+        <span class="price-new">9,90&nbsp;€</span>
+      </div>
+      <a href="https://www.checkout-ds24.com/product/714143" class="btn">Jetzt herunterladen →</a>
+      <span class="btn-sub">Sicher bezahlen über Digistore24 · sofortiger Download-Link per E-Mail</span>
+    </div>
+  </div>
+</section>
+
+<section class="faq">
+  <div class="section-head">
+    <h2>Fragen, bevor der Einsatz beginnt</h2>
+  </div>
+  <details open>
+    <summary>Muss ich das ausdrucken?</summary>
+    <p>Ja – die Quest-Karten sind zum Ausdrucken gedacht, 4 Stück pro A4-Seite. Ein normaler Heim-Drucker oder ein Copyshop-Ausdruck reicht völlig.</p>
+  </details>
+  <details>
+    <summary>Für welches Alter ist das Buch geeignet?</summary>
+    <p>Für Kinder von 6 bis 14 Jahren, aufgeteilt in drei Kapitel: 6–8, 9–11 und 12–14 Jahre. Die Altersgrenzen sind Richtwerte – viele Kinder greifen gern auch zu Quests aus dem Nachbarkapitel.</p>
+  </details>
+  <details>
+    <summary>Wie bekomme ich die Datei nach dem Kauf?</summary>
+    <p>Sofort nach dem Kauf über Digistore24 erhältst du einen Download-Link per E-Mail – als PDF zum Öffnen, Ausdrucken oder direkt am Tablet Ausfüllen.</p>
+  </details>
+  <details>
+    <summary>Brauche ich besonderes Material für die Quests?</summary>
+    <p>Nein. Fast alle Aufträge nutzen das, was ohnehin zuhause ist – Bauklötze, Kissen, Papier, Küchenzutaten. Bei einzelnen Quests steht das benötigte Material direkt mit dabei.</p>
+  </details>
+  <details>
+    <summary>Was, wenn es nicht das Richtige für uns ist?</summary>
+    <p>Der Kauf läuft über den Digistore24-Käuferschutz – die dortigen Rückgabebedingungen gelten.</p>
+  </details>
+</section>
+
+<footer>
+  <p>SOS Ferien-Quests · Ein Projekt für entspanntere Ferientage.<br>
+  Bezahlung &amp; Auslieferung über Digistore24 ·
+  <button type="button" class="legal-toggle" onclick="document.getElementById('impressum-box').classList.toggle('open')">Impressum</button>
+  ·
+  <button type="button" class="legal-toggle" onclick="document.getElementById('datenschutz-box').classList.toggle('open')">Datenschutz</button>
+  ·
+  <button type="button" class="legal-toggle" onclick="document.getElementById('widerruf-box').classList.toggle('open')">Widerrufsbelehrung</button>
+  ·
+  <button type="button" class="legal-toggle" onclick="document.getElementById('agb-box').classList.toggle('open')">AGB</button>
+  ·
+  <a href="mailto:calijula-verlag@web.de">Kontakt</a></p>
+  <p style="font-size:12px;margin-top:10px;">Diese Website lädt externe Schriftarten (Google Fonts) und verlinkt zur externen Bestellseite von Digistore24. Details dazu findest du in der Datenschutzerklärung.</p>
+
+  <div id="impressum-box" class="legal-box">
+    <h4>Impressum &amp; Urheberrecht</h4>
+    <table>
+      <tr><td>Titel:</td><td>SOS - Ferienquests</td></tr>
+      <tr><td>Autorin:</td><td>J. Nett</td></tr>
+      <tr><td>Verlag:</td><td>Calijula Verlag</td></tr>
+      <tr><td>Anschrift:</td><td>Anno-Knütgen-Str. 1b, 56203 Höhr-Grenzhausen</td></tr>
+      <tr><td>Erscheinungsjahr:</td><td>2026</td></tr>
+      <tr><td>Ausgabe:</td><td>1. Auflage</td></tr>
+      <tr><td>Kontakt:</td><td><a href="mailto:calijula-verlag@web.de">calijula-verlag@web.de</a></td></tr>
+    </table>
+    <hr>
+    <h4>© Urheberrecht</h4>
+    <p>Alle Rechte vorbehalten. Das Werk einschließlich aller seiner Teile ist urheberrechtlich geschützt. Jede Verwertung außerhalb der engen Grenzen des Urheberrechtsgesetzes ist ohne schriftliche Zustimmung der Autorin unzulässig und strafbar. Das gilt insbesondere für Vervielfältigungen, Übersetzungen, Mikroverfilmungen und die Einspeicherung und Verarbeitung in elektronischen Systemen. Anfragen zu Support-Themen sind an die oben genannte Kontaktadresse zu richten.</p>
+    <hr>
+    <h4>Haftungsausschluss</h4>
+    <p>Die in diesem Buch enthaltenen Quests, Informationen und Ideen wurden sorgfältig recherchiert und zusammengestellt. Dennoch kann keine Gewähr für die Vollständigkeit, Richtigkeit und Aktualität der Inhalte übernommen werden. Die Durchführung der Aktivitäten erfolgt auf eigene Gefahr. Die Autorin und der Verlag haften nicht für Personen- oder Sachschäden, die durch die Anwendung und Umsetzung der beschriebenen Quests und Maßnahmen entstehen. Eltern werden gebeten, die Aktivitäten je nach Alter und Fähigkeiten ihrer Kinder angemessen zu begleiten.</p>
+  </div>
+
+  <div id="datenschutz-box" class="legal-box">
+    <h4>Datenschutzerklärung</h4>
+
+    <h4>1. Verantwortlicher</h4>
+    <p>
+      Calijula Verlag<br>
+      (vollständiger Name und Anschrift siehe Impressum)<br>
+      E-Mail: <a href="mailto:calijula-verlag@web.de">calijula-verlag@web.de</a>
+    </p>
+
+    <h4>2. Allgemeines zur Datenverarbeitung</h4>
+    <p>Diese Website dient ausschließlich als Informations- und Verkaufsseite für das digitale Produkt „SOS – Ferienquests". Sie enthält kein eigenes Kontaktformular, keine Nutzerkonten und keine Kommentarfunktion. Personenbezogene Daten werden auf dieser Seite selbst nicht gespeichert.</p>
+
+    <h4>3. Hosting</h4>
+    <p>Diese Website wird über GitHub Pages (Betreiber: GitHub Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, USA) gehostet. Beim Aufruf der Seite verarbeitet GitHub automatisch technische Zugriffsdaten (u. a. IP-Adresse, Datum/Uhrzeit des Zugriffs, aufgerufene Seite, verwendeter Browser) in sogenannten Server-Logfiles. Dies dient der technischen Bereitstellung und Absicherung der Website (Art. 6 Abs. 1 lit. f DSGVO). Weitere Informationen: <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener">GitHub Datenschutzerklärung</a>.</p>
+
+    <h4>4. Google Fonts</h4>
+    <p>Diese Website bindet Schriftarten (Google Fonts) ein, die beim Seitenaufruf von Servern von Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland, geladen werden. Dabei wird die IP-Adresse des aufrufenden Geräts an Google übertragen. Dies erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an einer einheitlichen, technisch stabilen Darstellung der Website). Weitere Informationen: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Datenschutzerklärung</a>.</p>
+
+    <h4>5. Bestellvorgang über Digistore24</h4>
+    <p>Für den Kauf des Produkts wirst du über einen Link zu einer externen Bestellseite des Anbieters Digistore24 GmbH, St.-Godehard-Straße 32, 31139 Hildesheim, weitergeleitet. Der eigentliche Bestellvorgang sowie die Verarbeitung von Zahlungs- und Kontaktdaten (z. B. Name, Anschrift, E-Mail-Adresse, Zahlungsart) erfolgt vollständig auf den Servern und in der Verantwortung von Digistore24 GmbH. Es gilt insoweit die Datenschutzerklärung von Digistore24: <a href="https://www.digistore24.com/page/data-privacy" target="_blank" rel="noopener">https://www.digistore24.com/page/data-privacy</a>.</p>
+    <p>Ich selbst erhalte im Rahmen der Bestellabwicklung lediglich die zur Auslieferung des Produkts und zur Buchhaltung erforderlichen Daten (z. B. Name, E-Mail-Adresse, Bestelldetails) von Digistore24 übermittelt (Art. 6 Abs. 1 lit. b DSGVO – Vertragserfüllung).</p>
+
+    <h4>6. Verweis auf Instagram</h4>
+    <p>Diese Website und/oder die zugehörige Werbung verlinken auf ein Instagram-Profil bzw. werden über Instagram beworben. Instagram ist ein Dienst der Meta Platforms Ireland Limited, 4 Grand Canal Square, Dublin 2, Irland. Wenn du diesen Links folgst und das Instagram-Profil besuchst, gilt dort die Datenschutzerklärung von Meta: <a href="https://privacycenter.instagram.com/policy" target="_blank" rel="noopener">https://privacycenter.instagram.com/policy</a>. Auf die Datenverarbeitung durch Meta auf deren eigenen Plattformen habe ich keinen Einfluss.</p>
+
+    <h4>7. Cookies</h4>
+    <p>Diese Website selbst setzt keine eigenen Cookies ein. Beim Laden von Google Fonts sowie beim Wechsel zur Bestellseite von Digistore24 können durch die jeweiligen Anbieter jedoch Cookies oder vergleichbare Technologien gesetzt werden – hierzu gelten die oben verlinkten Datenschutzerklärungen der jeweiligen Anbieter.</p>
+
+    <h4>8. Deine Rechte</h4>
+    <p>Du hast das Recht auf Auskunft über die zu deiner Person gespeicherten Daten (Art. 15 DSGVO), auf Berichtigung (Art. 16 DSGVO), Löschung (Art. 17 DSGVO), Einschränkung der Verarbeitung (Art. 18 DSGVO), Datenübertragbarkeit (Art. 20 DSGVO) sowie Widerspruch gegen die Verarbeitung (Art. 21 DSGVO). Zudem besteht ein Beschwerderecht bei einer Datenschutz-Aufsichtsbehörde. Bei Fragen zum Datenschutz kannst du dich jederzeit an die oben genannte Kontaktadresse wenden.</p>
+
+    <p style="font-size:12px;color:var(--ink-soft);margin-top:16px;">Stand: Juli 2026</p>
+  </div>
+
+  <div id="widerruf-box" class="legal-box">
+    <h4>Widerrufsbelehrung</h4>
+
+    <h4>Widerrufsrecht</h4>
+    <p>Du hast das Recht, binnen vierzehn Tagen ohne Angabe von Gründen diesen Vertrag zu widerrufen. Die Widerrufsfrist beträgt vierzehn Tage ab dem Tag des Vertragsschlusses.</p>
+    <p>Um dein Widerrufsrecht auszuüben, musst du Calijula Verlag (vollständige Anschrift siehe Impressum), E-Mail: <a href="mailto:calijula-verlag@web.de">calijula-verlag@web.de</a>, mittels einer eindeutigen Erklärung (z. B. per Post versandter Brief oder E-Mail) über deinen Entschluss, diesen Vertrag zu widerrufen, informieren. Du kannst dafür das nachfolgende Muster-Widerrufsformular verwenden, das jedoch nicht vorgeschrieben ist.</p>
+    <p>Zur Wahrung der Widerrufsfrist reicht es aus, dass du die Mitteilung über die Ausübung des Widerrufsrechts vor Ablauf der Widerrufsfrist absendest.</p>
+
+    <h4>Folgen des Widerrufs</h4>
+    <p>Wenn du diesen Vertrag widerrufst, hat Calijula Verlag dir alle Zahlungen, die von dir erhalten wurden, unverzüglich und spätestens binnen vierzehn Tagen ab dem Tag zurückzuzahlen, an dem die Mitteilung über deinen Widerruf dieses Vertrags eingegangen ist. Für diese Rückzahlung wird dasselbe Zahlungsmittel verwendet, das du bei der ursprünglichen Transaktion eingesetzt hast, es sei denn, mit dir wurde ausdrücklich etwas anderes vereinbart; in keinem Fall werden dir wegen dieser Rückzahlung Entgelte berechnet.</p>
+
+    <h4>Erlöschen des Widerrufsrechts</h4>
+    <p>Dein Widerrufsrecht erlischt vorzeitig, wenn mit der Ausführung des Vertrages begonnen wurde, nachdem du</p>
+    <p>a) ausdrücklich zugestimmt hast, dass mit der Ausführung des Vertrages (d. h. der Bereitstellung des digitalen Download-Links) vor Ablauf der Widerrufsfrist begonnen wird, und</p>
+    <p>b) deine Kenntnis davon bestätigt hast, dass du durch deine Zustimmung mit Beginn der Ausführung des Vertrages dein Widerrufsrecht verlierst.</p>
+    <p>Diese Zustimmung wird im Bestellprozess über eine gesonderte Checkbox eingeholt, die vor Abschluss der Bestellung aktiv bestätigt werden muss.</p>
+
+    <hr>
+
+    <h4>Muster-Widerrufsformular</h4>
+    <p>(Wenn du den Vertrag widerrufen willst, fülle bitte dieses Formular aus und sende es zurück.)</p>
+    <p>
+      An: Calijula Verlag (vollständige Anschrift siehe Impressum), E-Mail: calijula-verlag@web.de<br><br>
+      Hiermit widerrufe(n) ich/wir (*) den von mir/uns (*) abgeschlossenen Vertrag über den Kauf des folgenden digitalen Inhalts:<br>
+      SOS – Ferienquests (PDF)<br><br>
+      Bestellt am (*): ______________________<br>
+      Name des/der Verbraucher(s): ______________________<br>
+      Anschrift des/der Verbraucher(s): ______________________<br>
+      Unterschrift des/der Verbraucher(s) (nur bei Mitteilung auf Papier): ______________________<br>
+      Datum: ______________________<br><br>
+      (*) Unzutreffendes streichen.
+    </p>
+  </div>
+
+  <div id="agb-box" class="legal-box">
+    <h4>Allgemeine Geschäftsbedingungen (AGB)</h4>
+
+    <h4>1. Geltungsbereich</h4>
+    <p>Diese AGB gelten für alle Bestellungen des digitalen Produkts „SOS – Ferienquests" (PDF-Datei), die über die Bestellplattform Digistore24 abgeschlossen werden. Vertragspartner ist Calijula Verlag (vollständiger Name und Anschrift siehe Impressum).</p>
+
+    <h4>2. Vertragsschluss</h4>
+    <p>Die Darstellung des Produkts auf dieser Website stellt kein bindendes Angebot dar, sondern eine unverbindliche Aufforderung an den Kunden, ein Angebot über die Bestellseite von Digistore24 abzugeben. Mit Abschluss des Bestellvorgangs bei Digistore24 und Zahlung des Kaufpreises kommt der Kaufvertrag zwischen dem Kunden und mir zustande.</p>
+
+    <h4>3. Preise und Zahlung</h4>
+    <p>Es gelten die zum Zeitpunkt der Bestellung auf der Bestellseite angezeigten Preise inkl. der gesetzlichen Mehrwertsteuer. Die Zahlungsabwicklung erfolgt vollständig über Digistore24; es gelten zusätzlich die Zahlungsbedingungen von Digistore24.</p>
+
+    <h4>4. Lieferung / Bereitstellung</h4>
+    <p>Nach erfolgreichem Zahlungseingang erhält der Kunde umgehend einen Download-Link zum digitalen Produkt (PDF-Datei) per E-Mail über Digistore24. Ein Versand auf einem physischen Datenträger erfolgt nicht.</p>
+
+    <h4>5. Nutzungsrechte</h4>
+    <p>Mit dem Kauf erwirbt der Kunde ein einfaches, nicht übertragbares Recht zur privaten Nutzung der PDF-Datei (z. B. zum Ausdrucken für den eigenen familiären Gebrauch). Eine Weitergabe, Vervielfältigung zu gewerblichen Zwecken, Veröffentlichung oder öffentliche Zugänglichmachung der Datei oder ihrer Inhalte ist ohne ausdrückliche schriftliche Zustimmung nicht gestattet. Es gilt ergänzend der Urheberrechtshinweis im Impressum.</p>
+
+    <h4>6. Widerrufsrecht</h4>
+    <p>Es gelten die Regelungen der gesonderten Widerrufsbelehrung auf dieser Website.</p>
+
+    <h4>7. Haftung</h4>
+    <p>Es gilt der Haftungsausschluss im Impressum dieser Website. Für die Anwendung und Durchführung der im Produkt beschriebenen Aktivitäten wird keine Haftung übernommen; Eltern werden gebeten, die Aktivitäten altersgerecht zu begleiten.</p>
+
+    <h4>8. Schlussbestimmungen</h4>
+    <p>Es gilt das Recht der Bundesrepublik Deutschland. Sollten einzelne Bestimmungen dieser AGB unwirksam sein, bleibt die Wirksamkeit der übrigen Bestimmungen davon unberührt.</p>
+
+    <p style="font-size:12px;color:var(--ink-soft);margin-top:16px;">Stand: Juli 2026</p>
+  </div>
+</footer>
+
+</body>
+</html>
